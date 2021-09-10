@@ -3,6 +3,7 @@ HEADERS += \
     $$PWD/render/nv12render.h \
     $$PWD/render/videorender.h \
     $$PWD/render/yuvrender.h \
+    $$PWD/render/nv12render_gpu.h \
     $$PWD/renderthread.h \
     $$PWD/videodecode/decodetaskmanagerimpl.h \
     $$PWD/videodecode/decodtask.h \
@@ -17,6 +18,7 @@ SOURCES += \
     $$PWD/render/nv12render.cpp \
     $$PWD/render/yuvrender.cpp \
     $$PWD/renderthread.cpp \
+    $$PWD/render/nv12render_gpu.cpp \
     $$PWD/videodecode/decodetaskmanagerimpl.cpp \
     $$PWD/videodecode/decodtask.cpp \
     $$PWD/videodecode/ffmpegcpudecode.cpp \

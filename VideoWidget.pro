@@ -4,9 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core gui opengl widgets openglwidgets
 
 TARGET = VideoWidget
 TEMPLATE = app
@@ -31,11 +29,13 @@ SOURCES += \
 HEADERS += \
         widget.h
 
-INCLUDEPATH += E:/ffmpeg/x64/include \
-               $$(INTELMEDIASDKROOT)/include
+INCLUDEPATH += E:/Vcpkg/packages/ffmpeg_x64-windows/include \
+               $$(INTELMEDIASDKROOT)/include \
+               "C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.1/include"
 
-LIBS += -LE:/ffmpeg/x64/lib \
-        avcodec.lib avdevice.lib avfilter.lib avformat.lib avutil.lib postproc.lib swresample.lib swscale.lib
+LIBS += -LE:/Vcpkg/packages/ffmpeg_x64-windows/lib \
+        -L"C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v11.1/lib/x64" \
+        avcodec.lib avdevice.lib avfilter.lib avformat.lib avutil.lib postproc.lib swresample.lib swscale.lib cuda.lib
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

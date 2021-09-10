@@ -43,7 +43,8 @@ void FFmpegQsvDecode::decode(const QString &url)
     char errorbuf[1024]{0};
     QString errorMsg;
     int ret, i;
-
+    int vden;
+    int vnum;
     AVDictionary *opt = nullptr;
     //av_dict_set(&opt,"buffer_size","1024000",0);
     //av_dict_set(&opt,"max_delay","0",0);
@@ -78,7 +79,8 @@ void FFmpegQsvDecode::decode(const QString &url)
         goto  END;
     }
 
-    int vden = video_st->avg_frame_rate.den,vnum = video_st->avg_frame_rate.num;
+    vden = video_st->avg_frame_rate.den;
+	vnum = video_st->avg_frame_rate.num;
     if(vden <= 0)
     {
         errorMsg = "get fps failed";

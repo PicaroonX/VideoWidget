@@ -9,7 +9,6 @@
 #include <QOpenGLShaderProgram>
 #include <QOpenGLFunctions>
 #include <QOpenGLBuffer>
-#include <QOpenGLTexture>
 #include <cuda.h>
 #include <cudaGL.h>
 #include "videorender.h"

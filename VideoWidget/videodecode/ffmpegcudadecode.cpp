@@ -42,7 +42,8 @@ void FFmpegCudaDecode::decode(const QString &url)
     QString errorMsg;
     int videoStream, i;
     int ret;
-
+    int vden;
+    int vnum;
     const char *device_name = "cuda";
     enum AVHWDeviceType type = av_hwdevice_find_type_by_name(device_name);
     if(type == AV_HWDEVICE_TYPE_NONE)
@@ -113,7 +114,8 @@ void FFmpegCudaDecode::decode(const QString &url)
         goto  END;
     }
 
-    int vden = video->avg_frame_rate.den,vnum = video->avg_frame_rate.num;
+    vden = video->avg_frame_rate.den;
+	vnum = video->avg_frame_rate.num;
     if(vden <= 0)
     {
         errorMsg = "get fps failed";
